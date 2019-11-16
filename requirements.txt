@@ -1,1 +1,2 @@
-Django>=1.9
+Django>=1.11
+supersqlite>=0.0.78
