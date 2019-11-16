@@ -5,7 +5,7 @@ from django.conf import settings
 
 class Command(BaseCommand):
     """
-    This command performs a vacuum on the S3SQLite database.
+    This command performs a vacuum on the S3_Sqlite database.
     It is good to do this occasionally to keep the SQLite database stored
     on S3 as small and unfragmented as possible. It is recommended to be
     run after deleting data.
@@ -13,8 +13,8 @@ class Command(BaseCommand):
     help = 'Performs a vacuum command on a S3 stored SQLite database to minimize size and fragmentation.'
 
     def handle(self, *args, **options):
-        if settings.DATABASES['default']['ENGINE'] != "zappa_django_utils.db.backends.s3sqlite":
-            raise DatabaseError('This command is only for the s3sqlite Django DB engine.')
+        if settings.DATABASES['default']['ENGINE'] != "django_s3_sqlite.db":
+            raise DatabaseError('This command is only for the s3_sqlite Django DB engine.')
         else:
             self.stdout.write(self.style.SUCCESS('Starting database VACUUM...'))
             cursor = connection.cursor()

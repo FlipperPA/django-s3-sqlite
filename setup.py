@@ -5,7 +5,7 @@ with open("README.md") as f:
     README = f.read()
 
 setup(
-    name="django-s3sqlite",
+    name="django-s3-sqlite",
     version="0.0.1",
     packages=find_packages(),
     install_requires=[
@@ -18,7 +18,7 @@ setup(
     description="An AWS S3-hosted SQLite database backend for Django.",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/FlipperPA/django-s3sqlite/",
+    url="https://github.com/FlipperPA/django-s3-sqlite/",
     author="Timothy Allen",
     author_email="flipper@peregrinesalon.com",
     classifiers=[

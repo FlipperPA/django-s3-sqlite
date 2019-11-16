@@ -7,7 +7,7 @@ from os import path
 
 import boto3
 import botocore
-import django_s3sqlite.apws as Database
+import django_s3_sqlite.apws as Database
 
 
 def check_sqlite_version():
