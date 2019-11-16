@@ -7,7 +7,17 @@ from os import path
 
 import boto3
 import botocore
-from supersqlite import sqlite3 as Database
+import django_s3sqlite.apws as Database
+
+
+def check_sqlite_version():
+    # Grab the SQLite version from apsw
+    version = tuple([int(x) for x in apsw.sqlitelibversion().split(".")])
+    if version < (3, 8, 3):
+        raise ImproperlyConfigured('SQLite 3.8.3 or later is required (found %s).' % version)
+
+
+check_sqlite_version()
 
 
 class DatabaseWrapper(DatabaseWrapper):
