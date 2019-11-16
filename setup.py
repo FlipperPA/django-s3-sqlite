@@ -1,39 +1,41 @@
-import os
-import sys
-from setuptools import setup
+from setuptools import setup, find_packages
 from io import open
 
-# New PyPI handles markdown! Yay!
-with open('README.md') as f:
+with open("README.md") as f:
     README = f.read()
 
 setup(
-    name='django-s3sqlite',
-    version='0.0.1',
-    packages=['django_s3sqlite'],
-    install_requires=required,
+    name="django-s3sqlite",
+    version="0.0.1",
+    packages=find_packages(),
+    install_requires=[
+        "Django>=2",
+    ],
+    setup_requires=["setuptools_scm"],
+    use_scm_version=True,
     include_package_data=True,
-    license='BSD License',
-    description='Helpers for Django Zappa deployments',
+    license="BSD License",
+    description="An AWS S3-hosted SQLite database backend for Django.",
     long_description=README,
-    long_description_content_type='text/markdown',
-    url='https://github.com/Miserlou/zappa-django-utils',
-    author='Rich Jones',
-    author_email='rich@openwatch.net',
+    long_description_content_type="text/markdown",
+    url="https://github.com/FlipperPA/django-s3sqlite/",
+    author="Timothy Allen",
+    author_email="flipper@peregrinesalon.com",
     classifiers=[
-        'Environment :: Console',
-        'License :: OSI Approved :: Apache Software License',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Framework :: Django',
-        'Framework :: Django :: 2.0',
-        'Framework :: Django :: 2.1',
-        'Framework :: Django :: 2.2',
-        'Topic :: Internet :: WWW/HTTP',
-        'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+        "Development Status :: 4 - Beta",
+        "Environment :: Web Environment",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: BSD License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3 :: Only",
+        "Framework :: Django",
+        "Framework :: Django :: 2.0",
+        "Framework :: Django :: 2.1",
+        "Framework :: Django :: 2.2",
+        "Topic :: Internet :: WWW/HTTP",
+        "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ],
 )
