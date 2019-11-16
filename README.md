@@ -1,12 +1,8 @@
 # django-s3sqlite
 
 [![PyPI](https://img.shields.io/pypi/v/zappa-django-utils.svg)](https://pypi.python.org/pypi/zappa-django-utils)
-[![Slack](https://img.shields.io/badge/chat-slack-ff69b4.svg)](https://slack.zappa.io/)
-[![Gun.io](https://img.shields.io/badge/made%20by-gun.io-blue.svg)](https://gun.io/)
-[![Patreon](https://img.shields.io/badge/support-patreon-brightgreen.svg)](https://patreon.com/zappa)
 
-
-This project was inspired and started for [Zappa](https://github.com/Miserlou/Zappa).
+This project was inspired and started for [Zappa](https://github.com/Miserlou/Zappa). Thanks to [Rich Jones](https://github.com/Miserlou) for all of his amazing work.
 
 ## Installation
 
@@ -16,13 +12,13 @@ Install via `pip`:
 
 Add to your installed apps:
 
-    INSTALLED_APPS += ['django_s3sqlite']
+    INSTALLED_APPS += ["django_s3sqlite"]
 
 ## Using an S3-Backed Database Engine
 
-**ZDU** includes the ability to use `s3sqlite`, an [S3-synced SQLite database](https://blog.zappa.io/posts/s3sqlite-a-serverless-relational-database) as a Django database engine.
+`django-s3sqlite` allows use of an [S3-synced SQLite database](https://blog.zappa.io/posts/s3sqlite-a-serverless-relational-database) as a Django database engine.
 
-This will cause problems for applications with concurrent writes**, but it scales very well for high-read applications that don't have concurrent writes (like CMSes), and it's orders of magnitude cheaper than AWS RDS.
+This will cause problems for applications with concurrent writes**, but it scales very well for high-read applications that don't have concurrent writes (like a CMS for your blog), and it's orders of magnitude cheaper than AWS RDS or Aurora (pennies per month instead of many dollars per month).
 
 ** Concurrent writes will often be lost and not show up in concurrent readers. This is because the database is transferred between S3 storage and the Lambda instance for each request.
 
@@ -59,9 +55,3 @@ This will internally make this call:
 ```python
 User.objects.create_superuser('one', 'two', 'three')
 ```
-
-Now log in and immediately change the admin user's email and password.
-
-## License
-
-(c) 2017, Rich Jones, MIT License
