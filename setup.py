@@ -7,20 +7,11 @@ from io import open
 with open('README.md') as f:
     README = f.read()
 
-# Set external files
-with open(os.path.join(os.path.dirname(__file__), 'requirements.txt')) as f:
-    required = f.read().splitlines()
-
-with open(os.path.join(os.path.dirname(__file__), 'test_requirements.txt')) as f:
-    test_required = f.read().splitlines()
-
 setup(
-    name='zappa-django-utils',
-    version='0.4.0',
+    name='django-s3sqlite',
+    version='0.0.1',
     packages=['django_s3sqlite'],
     install_requires=required,
-    tests_require=test_required,
-    test_suite='nose.collector',
     include_package_data=True,
     license='BSD License',
     description='Helpers for Django Zappa deployments',
