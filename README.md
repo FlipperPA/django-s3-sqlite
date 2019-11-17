@@ -34,7 +34,15 @@ DATABASES = {
 }
 ```
 
-And... that's it! Since SQLite keeps the database in a single file, you will want to keep it as small and defragmented as possible. It is good to occasionally perform a database vacuum, especially after deleting or updating data. There's a command to vacuum your database:
+Newer versions of Django (v2.1+) require a newer version of SQLite (3.8.3+) than is available on AWS Lambda instances (3.7.17).
+
+Because of this, you will need to download the file `_sqlite3.so` (available in the root of this repository) and put it at the root of your Django project. The file contains a compiled binary static build of SQLite 3.30.1 for Python 3.6. We hope this will soon be included on [Lambda Packages](https://github.com/Miserlou/lambda-packages), but for now, you will also need to add this line to your Zappa JSON settings file in each environment:
+
+```
+"use_precompiled_packages": false,
+```
+
+Since SQLite keeps the database in a single file, you will want to keep it as small and defragmented as possible. It is good to occasionally perform a database vacuum, especially after deleting or updating data. There's a command to vacuum your database:
 
 ```bash
 zappa manage [instance] s3_sqlite_vacuum
@@ -55,3 +63,20 @@ This will internally make this call:
 ```python
 User.objects.create_superuser('one', 'two', 'three')
 ```
+
+## Creator and Maintainer
+
+* Creator: Rich Jones (https://github.com/Miserlou/)
+* Maintainer: Tim Allen (https://github.com/FlipperPA/)
+
+This package is largely maintained by the staff of [Wharton Research Data Services](https://wrds.wharton.upenn.edu/). We are thrilled that [The Wharton School](https://www.wharton.upenn.edu/) allows us a certain amount of time to contribute to open-source projects. We add features as they are necessary for our projects, and try to keep up with Issues and Pull Requests as best we can. Due to time constraints (our full time jobs!), Feature Requests without a Pull Request may not be implemented, but we are always open to new ideas and grateful for contributions and our package users.
+
+### Contributors - Thank You!
+
+* Viktor Chaptsev (https://github.com/vchaptsev/)
+* Almog Cohen (https://github.com/AlmogCohen/)
+* Paul Bailey (https://github.com/pizzapanther/)
+* Noorhteen Raja J (https://github.com/jnoortheen/)
+* jjorissen52 (https://github.com/jjorissen52/)
+* James Winegar (https://github.com/jameswinegar/)
+* Edgar Roman (https://github.com/edgarroman/)
