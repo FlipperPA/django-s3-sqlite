@@ -10,14 +10,14 @@ class Command(BaseCommand):
     on S3 as small and unfragmented as possible. It is recommended to be
     run after deleting data.
     """
-    help = 'Performs a vacuum command on a S3 stored SQLite database to minimize size and fragmentation.'
+    help = "Performs a vacuum command on a S3 stored SQLite database to minimize size and fragmentation."
 
     def handle(self, *args, **options):
-        if settings.DATABASES['default']['ENGINE'] != "django_s3_sqlite.db":
-            raise DatabaseError('This command is only for the s3_sqlite Django DB engine.')
+        if settings.DATABASES["default"]["ENGINE"] != "django_s3_sqlite":
+            raise DatabaseError("This command is only for the 'django_s3_sqlite' Django DB engine.")
         else:
-            self.stdout.write(self.style.SUCCESS('Starting database VACUUM...'))
+            self.stdout.write(self.style.SUCCESS("Starting database VACUUM..."))
             cursor = connection.cursor()
-            cursor.execute('VACUUM;')
+            cursor.execute("VACUUM;")
             cursor.close()
-            self.stdout.write(self.style.SUCCESS('VACUUM complete.'))
+            self.stdout.write(self.style.SUCCESS("VACUUM complete."))
