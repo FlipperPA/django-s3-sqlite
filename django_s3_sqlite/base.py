@@ -7,17 +7,6 @@ from os import path
 
 import boto3
 import botocore
-import django_s3_sqlite.apws as Database
-
-
-def check_sqlite_version():
-    # Grab the SQLite version from apsw
-    version = tuple([int(x) for x in apsw.sqlitelibversion().split(".")])
-    if version < (3, 8, 3):
-        raise ImproperlyConfigured('SQLite 3.8.3 or later is required (found %s).' % version)
-
-
-check_sqlite_version()
 
 
 class DatabaseWrapper(DatabaseWrapper):
@@ -25,8 +14,6 @@ class DatabaseWrapper(DatabaseWrapper):
     Wraps the normal Django SQLite DB engine in one that shuttles the SQLite database
     back and forth from an S3 bucket.
     """
-
-    Database = Database
 
     def load_remote_db(self):
         """

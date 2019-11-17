@@ -2,7 +2,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/zappa-django-utils.svg)](https://pypi.python.org/pypi/django-s3-sqlite)
 
-This project was inspired and started for [Zappa](https://github.com/Miserlou/Zappa). Thanks to [Rich Jones](https://github.com/Miserlou) for all of his amazing work.
+This project was inspired and started with [Zappa](https://github.com/Miserlou/Zappa). Thanks to [Rich Jones](https://github.com/Miserlou) for all of his amazing work.
 
 ## Installation
 
@@ -26,10 +26,10 @@ This will cause problems for applications with concurrent writes**, but it scale
 
 ```python
 DATABASES = {
-    'default': {
-        'ENGINE': 'django_s3_sqlite.db',
-        'NAME': 'sqlite.db',
-        'BUCKET': 'your-db-bucket'
+    "default": {
+        "ENGINE": "django_s3_sqlite",
+        "NAME": "sqlite.db",
+        "BUCKET": "your-db-bucket",
     }
 }
 ```
