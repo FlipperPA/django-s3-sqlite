@@ -6,7 +6,6 @@ with open("README.md") as f:
 
 setup(
     name="django-s3-sqlite",
-    version="0.0.1",
     packages=find_packages(),
     install_requires=[
         "Django>=2",
