@@ -80,3 +80,9 @@ This package is largely maintained by the staff of [Wharton Research Data Servic
 * jjorissen52 (https://github.com/jjorissen52/)
 * James Winegar (https://github.com/jameswinegar/)
 * Edgar Roman (https://github.com/edgarroman/)
+
+### Build Instructions for _sqlite3.so
+
+These instructions show how to build the static binary necessary: https://charlesleifer.com/blog/compiling-sqlite-for-use-with-python-applications/
+
+It must be done on Amazon Linux or CentOS 7 (which Amazon Linux is based on).
