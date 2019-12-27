@@ -7,9 +7,7 @@ with open("README.md") as f:
 setup(
     name="django-s3-sqlite",
     packages=find_packages(),
-    install_requires=[
-        "Django>=2",
-    ],
+    install_requires=["Django>=2"],
     setup_requires=["setuptools_scm"],
     use_scm_version=True,
     include_package_data=True,
