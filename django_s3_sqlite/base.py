@@ -114,6 +114,7 @@ class DatabaseWrapper(DatabaseWrapper):
             self.s3.Object(
                 self.settings_dict["BUCKET"], self.settings_dict["REMOTE_NAME"],
             ).put(Body=file_bytes, ContentMD5=base64.b64encode(binascii.unhexlify(current_md5)).decode("utf-8"))
+            self.db_hash = current_md5
             log.debug("Saved to remote DB!")
         except Exception as e:
             log.exception("An error occurred pushing the database to S3.")
