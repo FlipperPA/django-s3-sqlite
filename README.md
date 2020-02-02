@@ -64,10 +64,10 @@ This will internally make this call:
 User.objects.create_superuser('one', 'two', 'three')
 ```
 
-## Creator and Maintainer
+## Maintainer and Creator
 
-* Creator: Rich Jones (https://github.com/Miserlou/)
 * Maintainer: Tim Allen (https://github.com/FlipperPA/)
+* Original Creator: Rich Jones (https://github.com/Miserlou/)
 
 This package is largely maintained by the staff of [Wharton Research Data Services](https://wrds.wharton.upenn.edu/). We are thrilled that [The Wharton School](https://www.wharton.upenn.edu/) allows us a certain amount of time to contribute to open-source projects. We add features as they are necessary for our projects, and try to keep up with Issues and Pull Requests as best we can. Due to time constraints (our full time jobs!), Feature Requests without a Pull Request may not be implemented, but we are always open to new ideas and grateful for contributions and our package users.
 
