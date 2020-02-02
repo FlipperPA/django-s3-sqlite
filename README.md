@@ -64,6 +64,10 @@ This will internally make this call:
 User.objects.create_superuser('one', 'two', 'three')
 ```
 
+## Release Notes
+
+On GitHub: https://github.com/FlipperPA/django-s3-sqlite/releases
+
 ## Maintainer and Creator
 
 * Maintainer: Tim Allen (https://github.com/FlipperPA/)
@@ -73,6 +77,7 @@ This package is largely maintained by the staff of [Wharton Research Data Servic
 
 ### Contributors - Thank You!
 
+* Peter Baumgartner (https://github.com/ipmb/)
 * Viktor Chaptsev (https://github.com/vchaptsev/)
 * Almog Cohen (https://github.com/AlmogCohen/)
 * Paul Bailey (https://github.com/pizzapanther/)
