@@ -68,16 +68,16 @@ User.objects.create_superuser('one', 'two', 'three')
 
 On GitHub: https://github.com/FlipperPA/django-s3-sqlite/releases
 
-## Maintainer and Creator
+## Maintainers and Creator
 
 * Maintainer: Tim Allen (https://github.com/FlipperPA/)
+* Maintainer: Peter Baumgartner (https://github.com/ipmb/)
 * Original Creator: Rich Jones (https://github.com/Miserlou/)
 
 This package is largely maintained by the staff of [Wharton Research Data Services](https://wrds.wharton.upenn.edu/). We are thrilled that [The Wharton School](https://www.wharton.upenn.edu/) allows us a certain amount of time to contribute to open-source projects. We add features as they are necessary for our projects, and try to keep up with Issues and Pull Requests as best we can. Due to time constraints (our full time jobs!), Feature Requests without a Pull Request may not be implemented, but we are always open to new ideas and grateful for contributions and our package users.
 
 ### Contributors - Thank You!
 
-* Peter Baumgartner (https://github.com/ipmb/)
 * Viktor Chaptsev (https://github.com/vchaptsev/)
 * Almog Cohen (https://github.com/AlmogCohen/)
 * Paul Bailey (https://github.com/pizzapanther/)
