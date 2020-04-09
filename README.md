@@ -90,4 +90,4 @@ This package is largely maintained by the staff of [Wharton Research Data Servic
 
 These instructions show how to build the static binary necessary: https://charlesleifer.com/blog/compiling-sqlite-for-use-with-python-applications/
 
-It must be done on Amazon Linux or CentOS 7 (which Amazon Linux is based on).
+After you've downloaded SQLite, follow the instructions to install it into a virtual environment. You must perform the installation on Amazon Linux or CentOS 7 (which Amazon Linux is based on).
