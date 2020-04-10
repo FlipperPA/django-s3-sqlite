@@ -80,6 +80,7 @@ This package is largely maintained by the staff of [Wharton Research Data Servic
 
 * Viktor Chaptsev (https://github.com/vchaptsev/)
 * Almog Cohen (https://github.com/AlmogCohen/)
+* Lucas Connors (https://github.com/RevolutionTech)
 * Paul Bailey (https://github.com/pizzapanther/)
 * Noorhteen Raja J (https://github.com/jnoortheen/)
 * jjorissen52 (https://github.com/jjorissen52/)
