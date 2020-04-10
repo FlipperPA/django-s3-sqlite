@@ -36,7 +36,7 @@ DATABASES = {
 
 Newer versions of Django (v2.1+) require a newer version of SQLite (3.8.3+) than is available on AWS Lambda instances (3.7.17).
 
-**Because of this, you will need to download the file `_sqlite3.so` (available in the root of this repository) and put it at the root of your Django project.** The file contains a compiled binary static build of SQLite 3.30.1 for Python 3.6. We hope this will soon be included on [Lambda Packages](https://github.com/Miserlou/lambda-packages), but for now, you will also need to add this line to your Zappa JSON settings file in each environment:
+**Because of this, you will need to download the provided `_sqlite3.so` for your Python version (available in the `shared-objects` directory of this repository) and put it at the root of your Django project.** These shared object files contain a compiled binary static build of SQLite 3.30.1 that can be used with the corresponding version of Python. We hope this will soon be available via [Lambda Packages](https://github.com/Miserlou/lambda-packages), but for now, you will also need to add this line to your Zappa JSON settings file in each environment:
 
 ```
 "use_precompiled_packages": false,
@@ -88,6 +88,6 @@ This package is largely maintained by the staff of [Wharton Research Data Servic
 
 ### Build Instructions for _sqlite3.so
 
-These instructions show how to build the static binary necessary: https://charlesleifer.com/blog/compiling-sqlite-for-use-with-python-applications/
+If you'd like to use a different version of Python or SQLite than what is provided in this repo, you will need to build the static binary yourself. These instructions show you how to build the file: https://charlesleifer.com/blog/compiling-sqlite-for-use-with-python-applications/
 
-It must be done on Amazon Linux or CentOS 7 (which Amazon Linux is based on).
+After you've downloaded SQLite, follow the instructions to install it into a virtual environment. You must perform the installation on Amazon Linux or CentOS 7 (which Amazon Linux is based on).
