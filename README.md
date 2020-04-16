@@ -48,7 +48,12 @@ Since SQLite keeps the database in a single file, you will want to keep it as sm
 zappa manage [instance] s3_sqlite_vacuum
 ```
 
-## Creating a Default Admin User 
+## Running manage.py commands
+
+To update your database, you **must** do so via Zappa, via the below example:
+
+    $ zappa manage <stage> migrate
+
 
 You'll probably need a default user to manage your application with, so you can now:
 
