@@ -90,6 +90,7 @@ class DatabaseWrapper(DatabaseWrapper):
         signature_version = self.settings_dict.get("SIGNATURE_VERSION", "s3v4")
         self.s3 = boto3.resource(
             "s3", config=botocore.client.Config(signature_version=signature_version),
+            endpoint_url=self.settings_dict.get("ENDPOINT_URL")
         )
         self.db_hash = None
         self.load_remote_db()
