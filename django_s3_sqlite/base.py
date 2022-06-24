@@ -88,9 +88,20 @@ class DatabaseWrapper(DatabaseWrapper):
     def __init__(self, *args, **kwargs):
         super(DatabaseWrapper, self).__init__(*args, **kwargs)
         signature_version = self.settings_dict.get("SIGNATURE_VERSION", "s3v4")
-        self.s3 = boto3.resource(
-            "s3", config=botocore.client.Config(signature_version=signature_version),
-        )
+        aws_s3_access_key = self.settings_dict.get("AWS_S3_ACCESS_KEY", None)
+        aws_s3_access_secret = self.settings_dict.get("AWS_S3_ACCESS_SECRET", None)
+        if aws_s3_access_key and aws_s3_access_secret:
+            session = boto3.Session(
+                aws_access_key_id=aws_s3_access_key,
+                aws_secret_access_key=aws_s3_access_secret,
+            )
+            self.s3 = session.resource(
+                "s3", config=botocore.client.Config(signature_version=signature_version),
+            )
+        else:
+            self.s3 = boto3.resource(
+                "s3", config=botocore.client.Config(signature_version=signature_version),
+            )
         self.db_hash = None
         self.load_remote_db()
 
