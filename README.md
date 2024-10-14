@@ -36,9 +36,15 @@ DATABASES = {
 }
 ```
 
-Newer versions of Django (v2.1+) require a newer version of SQLite (3.8.3+) than is available on AWS Lambda instances (3.7.17).
+Newer versions of Django (v2.1+) require a newer version of SQLite (3.8.3+) than is available on AWS Lambda instances (3.7.17). [Use the pysqlite3 package](https://github.com/coleifer/pysqlite3), and add these lines to your Django settings to override the built-in `sqlite3` module:
 
-**Because of this, you will need to download the provided `_sqlite3.so` for your Python version (available in the `shared-objects` directory of this repository) and put it at the root of your Django project.** Note that only the Python 3.6 and 3.8 runtimes are supported at this time. These shared object files contain a compiled binary static build of SQLite 3.30.1 that can be used with the corresponding version of Python. You will also need to add this line to your Zappa JSON settings file in each environment:
+```python
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+```
+
+There was support for custom `_sqlite.so` files for different Python versions, but the above method is more flexible and doesn't require a new compilation with every new runtime. You may also need to add this line to your Zappa JSON settings file in each environment:
 
 ```
 "use_precompiled_packages": false,
